@@ -1,6 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Sami Heroes App
+# Sami Heroes Web App
+Na cidade Sami, o cidadão vem em primeiro lugar, principalmente a sua segurança, e neste universo paralelo em que vivemos cheio de heróis e vilões que surgem todos os dias, decidimos desenvolver um app que irá ajudar nossos cidadãos a pedirem ajuda sempre que precisarem, pois segundo teorias quanticas comprovadas, para cada vilão, existe seu oponente, o herói.
+
+
+### User Stories (Features)
+- [ ] Como um **cadidão** da cidade Sami quero ver os meus **heróris no app em lista** para facilitar a procura e visualização caso eu precise de ajuda;
+- [ ] Como um **cadidão** da cidade Sami quero poder filtrar os meus **heróris no app por nome** para facilitar a busca pelos meus heróis favoritos;
+- [ ] Como um **cadidão** da cidade Sami quero poder filtrar os meus **heróris no app por poderes** para eu escolher o herói certo quando eu estiver em perigo;
+- [ ] Como um **cadidão** da cidade Sami quero visualizar o perfil do meu **heróri no app** a qualquer momento da listagem;
+
+### Sketches do MVP
 
 ## Available Scripts
 
