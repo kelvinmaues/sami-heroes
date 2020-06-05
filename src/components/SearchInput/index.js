@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useDebouncedCallback } from "use-debounce";
 import { InputGroup, InputGroupAddon, Input, Button } from "reactstrap";
 // actions
-import { searchHeroByName } from "../../application/redux-duck";
+import { searchHeroByName } from "../../reducers_and_actions/justiceRoom";
 
 const SearchInput = () => {
   const [query, setQuery] = useState("");

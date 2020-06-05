@@ -5,6 +5,7 @@ import loggerMiddleware from "./middlewares/LoggerMiddleware";
 import reducers from "./reducers";
 
 const middlewares = [thunkMiddleware];
+
 middlewares.push(loggerMiddleware);
 
 const composeEnhancers =
@@ -18,6 +19,5 @@ const enhancer = composeEnhancers(
   applyMiddleware(...middlewares)
   // other store enhancers if any
 );
-
 export const store = createStore(reducers, enhancer);
 export const persistor = persistStore(store);

@@ -1,6 +1,11 @@
 import Axios from "axios";
 // import { REQ_BEGIN, REQ_ENDED, REQ_ERROR } from '@api/RequestActionType';
 import Config from "../config";
+import {
+  REQ_BEGIN,
+  REQ_ENDED,
+  REQ_ERROR,
+} from "../reducers_and_actions/request";
 
 /**
  * A class with HTTP methods to a REST API in back-end
@@ -25,6 +30,34 @@ export default class Request {
   }
 
   axios() {
+    const { store } = require("../store");
+    // Intercepting request
+    this.instance().interceptors.request.use(
+      (config) => {
+        store.dispatch({ type: REQ_BEGIN });
+        return config;
+      },
+      (error) => {
+        store.dispatch({ type: REQ_ERROR, error });
+        return Promise.reject(error);
+      }
+    );
+
+    // Intercepting response
+    this.instance().interceptors.response.use(
+      (resp) => {
+        if (resp.data.error) {
+          store.dispatch({ type: REQ_ERROR, error: resp.data.error });
+        }
+        store.dispatch({ type: REQ_ENDED });
+        return resp;
+      },
+      (error) => {
+        store.dispatch({ type: REQ_ERROR, err: error });
+        return Promise.reject(error);
+      }
+    );
+
     return this.instance();
   }
 

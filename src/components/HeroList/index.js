@@ -4,7 +4,7 @@ import { CardColumns } from "reactstrap";
 // internal components
 import HeroCard from "../HeroCard";
 // actions
-import { searchHeroByName } from "../../application/redux-duck";
+import { searchHeroByName } from "../../reducers_and_actions/justiceRoom";
 
 const HeroList = () => {
   const heroes = useSelector((state) => state.justiceRoom.heroes);
@@ -18,9 +18,7 @@ const HeroList = () => {
     ? heroes.map((heroObj) => <HeroCard key={heroObj.id} info={heroObj} />)
     : null;
 
-  return (
-    <CardColumns>{heroesCardList}</CardColumns>
-  );
+  return <CardColumns>{heroesCardList}</CardColumns>;
 };
 
 export default HeroList;
