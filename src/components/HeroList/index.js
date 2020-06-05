@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { CardColumns } from "reactstrap";
 // internal components
 import HeroCard from "../HeroCard";
 // actions
@@ -18,9 +19,7 @@ const HeroList = () => {
     : null;
 
   return (
-    <div className="container px-6 h-screen flex content-start flex-wrap">
-      {heroesCardList}
-    </div>
+    <CardColumns>{heroesCardList}</CardColumns>
   );
 };
 
