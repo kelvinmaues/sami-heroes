@@ -67,7 +67,9 @@ export const searchHeroByName = (queryName = "A") => async (
 ) => {
   try {
     const res = await Hero.getHeroByName(queryName);
-    dispatch(setHeroes(res.data.results));
+    if (res.data.results) {
+      dispatch(setHeroes(res.data.results));
+    }
   } catch (err) {
     return err;
   }
