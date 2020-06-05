@@ -1,48 +1,35 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Card, CardContent, CardMedia, Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
+import { Card, CardBody, CardImg } from "reactstrap";
 
-const useStyles = makeStyles(() => ({
-  root: {
-    display: "flex",
-    width: "300px",
-    height: "150px",
-    borderRadius: "16px",
-  },
-  details: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  content: {
-    flex: "1 0 auto",
-  },
-  cover: {
-    width: 151,
-  },
-}));
-
-const HeroCard = () => {
-  const classes = useStyles();
-
+const HeroCard = ({ info }) => {
+  const { image, name, biography, work } = info;
   return (
-    <Card className={classes.root}>
-      <CardMedia
-        className={classes.cover}
-        image="https:\/\/www.superherodb.com\/pictures2\/portraits\/10\/100\/667.jpg"
-        title="Live from space album cover"
+    <Card
+      className="flex transition duration-500 rounded-lg ease-in-out shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-110 ..."
+      style={{ width: "300px", height: "150px" }}
+    >
+      <CardImg
+        className="rounded-l-lg"
+        width="40%"
+        src={image.url}
+        alt={name}
       />
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component="h4" variant="h5">
-            Live From Space
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
-          </Typography>
-        </CardContent>
-      </div>
+      <CardBody className="flex flex-col">
+        <p className="text-xl font-extrabold">{name}</p>
+        <p className="text-sm font-light">{biography["full-name"] || "---"}</p>
+        <p className="">{work.occupation}</p>
+      </CardBody>
     </Card>
   );
+};
+
+HeroCard.defaultProps = {
+  info: {},
+};
+
+HeroCard.propTypes = {
+  info: PropTypes.objectOf(PropTypes.object),
 };
 
 export default HeroCard;

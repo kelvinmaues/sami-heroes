@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
 import HeroCard from "./HeroCard";
+import HeroList from "./HeroList";
 
-export { NavBar, HeroCard };
+export { HeroCard, HeroList };
