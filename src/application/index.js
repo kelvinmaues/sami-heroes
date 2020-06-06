@@ -7,6 +7,7 @@ import {
   SearchInput,
   LastViewedHeroes,
   ModalHero,
+  ErrorAlert,
 } from "../components";
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <ModalHero />
       <SearchInput />
       <LastViewedHeroes />
+      <ErrorAlert />
       <HeroList />
     </Container>
   );
