@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import {
   Card,
   CardBody,
@@ -9,8 +10,11 @@ import {
   CardText,
   Button,
 } from "reactstrap";
+import { setHero, setViewedHero } from "../../reducers_and_actions/justiceRoom";
 
 const HeroCard = ({ info }) => {
+  const dispatch = useDispatch();
+
   const { image, name, biography, work } = info;
   return (
     <Card className="max-w-sm rounded overflow-hidden transition duration-500 rounded-lg ease-in-out shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105">
@@ -25,7 +29,14 @@ const HeroCard = ({ info }) => {
             {work.occupation}
           </CardText>
         )}
-        <Button color="dark" size="sm">
+        <Button
+          color="dark"
+          size="sm"
+          onClick={() => {
+            dispatch(setHero(info));
+            dispatch(setViewedHero({ id: info.id, name: info.name }));
+          }}
+        >
           Ver Perfil
         </Button>
       </CardBody>
@@ -38,7 +49,12 @@ HeroCard.defaultProps = {
 };
 
 HeroCard.propTypes = {
-  info: PropTypes.objectOf(PropTypes.object),
+  info: PropTypes.shape({
+    id: PropTypes.string,
+    image: PropTypes.object,
+    biography: PropTypes.object,
+    work: PropTypes.object,
+  }),
 };
 
 export default HeroCard;
