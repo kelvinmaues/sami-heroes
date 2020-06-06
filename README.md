@@ -5,13 +5,17 @@ Na cidade Sami, o cidadão vem em primeiro lugar, principalmente a sua seguranç
 
 
 ### User Stories (Features)
-- [ ] Como um **cadidão** da cidade Sami quero ver os meus **heróris no app em lista** para facilitar a procura e visualização caso eu precise de ajuda;
-- [ ] Como um **cadidão** da cidade Sami quero poder filtrar os meus **heróris no app por nome** para facilitar a busca pelos meus heróis favoritos;
-- [ ] Como um **cadidão** da cidade Sami quero poder filtrar os meus **heróris no app por poderes** para eu escolher o herói certo quando eu estiver em perigo;
-- [ ] Como um **cadidão** da cidade Sami quero visualizar o perfil do meu **heróri no app** a qualquer momento da listagem;
+- [x] Como um **cadidão** da cidade Sami quero ver os meus **heróis no app em lista** para facilitar a procura e visualização caso eu precise de ajuda;
+- [x] Como um **cadidão** da cidade Sami quero poder filtrar os meus **heróis no app por nome** para facilitar a busca pelos meus heróis favoritos;
+- [ ] Como um **cadidão** da cidade Sami quero poder filtrar os meus **heróis no app por poderes** para eu escolher o herói certo quando eu estiver em perigo;
+- Obs.: *(Não implementado pois a API não disponibiliza filtro por poderes, somente por nome. E também seria muito custoso implementar a busca diretamente no front-end, não sendo escalável e com boa perfomance)*
+- [x] Como um **cadidão** da cidade Sami quero visualizar o perfil do meu **heróis visualizados no app** a qualquer momento da listagem;
 
-### Sketches do MVP
+#### Extra User Stories (Features)
+- [x] Como um **cadidão** da cidade Sami quero visualizar os últimos 10 perfiis dos meus **heróis no app** a qualquer momento da listagem;
 
+#### O que eu gostaria de ter feito e não fiz ?
+Gostaria de ter implementado testes de interação com **Testing Library**, da forma que o usuário iria utilizar a aplicação, é uma filosofia desta biblioteca que aprecio bastante.
 ## Available Scripts
 
 In the project directory, you can run:
