@@ -2,11 +2,17 @@ import React from "react";
 // global components
 import { Container } from "reactstrap";
 // internal components
-import { HeroList, SearchInput, LastViewedHeroes } from "../components";
+import {
+  HeroList,
+  SearchInput,
+  LastViewedHeroes,
+  ModalHero,
+} from "../components";
 
 const App = () => {
   return (
     <Container className="container mx-auto space-y-6">
+      <ModalHero />
       <SearchInput />
       <LastViewedHeroes />
       <HeroList />
