@@ -11,7 +11,6 @@ const initialState = {
   heroes: [],
   hero: null,
   lastViewedHeroes: [],
-  lastTermsSearched: [],
 };
 
 // Reducer
@@ -28,9 +27,14 @@ export default (state = initialState, action = {}) => {
         hero: action.hero,
       };
     case SET_LAST_HERO_VIEWED:
+      let last = state.lastViewedHeroes.filter(
+        (value) => value.id !== action.hero.id
+      );
+      last = [action.hero, ...state.lastViewedHeroes];
+      last = last.slice(0, 9);
       return {
         ...state,
-        lastViewedHeroes: [...state.lastViewedHeroes, action.hero],
+        lastViewedHeroes: last,
       };
     default:
       return state;
@@ -55,16 +59,13 @@ export function setViewedHero(hero) {
 export const getHero = (heroId) => async (dispatch, state) => {
   try {
     const res = await Hero.getHero(heroId);
-    dispatch(setHero(res.data.results));
+    dispatch(setHero(res.data));
   } catch (err) {
     return err;
   }
 };
 
-export const searchHeroByName = (queryName = "A") => async (
-  dispatch,
-  state
-) => {
+export const searchHeroByName = (queryName = "A") => async (dispatch) => {
   try {
     const res = await Hero.getHeroByName(queryName);
     if (res.data.results) {
